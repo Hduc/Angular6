@@ -1,0 +1,92 @@
+/* navbarMenu */
+/* dropdown-header */
+
+.dropdown-toggle {
+    font-size: 1.2em;
+     margin: 10px;
+     float: right;
+     color: #000;
+     text-decoration:none;
+}
+.navbar-nav{
+    width: 100%;
+}
+
+a.dropdown-toggle i {
+    font-size: 1.7em;
+    margin-top: 5px;
+}
+.dropdown-menu {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding: 5px;
+}
+.dropdown-menu li {
+    padding: 2px 20px 2px 10px;
+}
+.avatarsociete{
+    margin-top: -25px;
+}
+.avatarsociete img{
+    border: 1px solid gray;
+    border-radius:2px; 
+    height: 85px;
+}
+.avatarsociete input{
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0!important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/*//////////////////// profil /////////////////////// */
+#profil h4{
+    background-color: #d43f3a;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+}
+#profil .row{
+    margin: 20px 0px;
+}
+#profil #champs{
+    border: 1px solid;
+}
+#APE{
+    overflow:hidden;
+}
+#APE h4{
+    margin: -44px -45px 30px -44px;
+    background-color: #d43f3a;
+    color: #fff;
+    font-weight: bold;
+    padding: 13px;
+}
+.is-invalid{
+    border-color: #dc3545;
+}
+#APE i.fa-search{
+    font-size: 19px;
+    margin-top: 7px;
+    margin-right: 7px;
+    float: left;
+}
+.row .submit button{
+    margin: 0px 10px;
+}
+@media(max-width:924px){
+    #dropdown-header a.dropdown-toggle.text-uppercase{
+        max-width: 222px;
+        text-align: right;
+        margin-top: 18px; 
+    }
+    .avatarsociete img{
+        margin: 0px auto;
+        height: 150px;
+    }
+}

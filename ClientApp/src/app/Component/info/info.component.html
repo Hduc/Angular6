@@ -1,0 +1,23 @@
+<div class="dropdown pull-right" id="dropdown-header">
+  <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    {{ nomSociete }}
+    <i class="fa fa-caret-down"></i>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a (click)="Loadinfo()">profil Société</a>
+    </li>
+    <li>
+      <a (click)="History()">historique</a>
+    </li>
+    <li *ngIf="idIntermediation!='0'">
+      <a routerLink="/votre-contact/{{idIntermediation}}">votre contact</a>
+    </li>
+    <li role="separator" class="divider"></li>
+    <li>
+      <a (click)='lockout()'> deconnexion
+        <i class="fa fa-power-off text-danger"></i>
+      </a>
+    </li>
+  </ul>
+</div>

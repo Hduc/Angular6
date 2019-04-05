@@ -1,0 +1,106 @@
+<div class="breadcrumbs">
+  <i class="fa fa-chevron-right"></i>
+  <a routerLink="/event/{{id}}">Page d’accueil</a>
+</div>
+<div class="row detail-event">
+  <div class="col-md-3 col-sm-12 event">
+    <span >
+      <img class="cusImg" src="{{SiteWebIntermediation}}">
+      <hr>
+      <em class="pull-right">{{DateIntermediation |date : 'd MMMM y'}}</em>
+    </span>
+  </div>
+  <div class="col-md-9 col-sm-12 cuscol" id="menuItem">
+    <div class="row">
+      <div class="col-xs-5 eventItem ">
+        <a routerLink="/information/{{idIntermediation}}" title="informations">
+          <label style="background-color: cornflowerblue;">
+            <i class="fa fa-files-o"></i>
+          </label>
+          <span class="hidden-xs">Présentation</span>
+        </a>
+      </div>
+      <div class="col-xs-7 info">
+        <strong>Données de votre société</strong>
+        <p>A valider avant le 10 juin 2018 </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-5 eventItem">
+        <a routerLink="/social-media/{{idIntermediation}}" title="social media">
+          <label style="background-color: olivedrab;">
+            <i class="fa fa-pinterest-p"></i>
+          </label>
+          <span class="hidden-xs">social media</span>
+        </a>
+      </div>
+      <div class="col-xs-7 info">
+        <strong>Communiquer sur votre évènement</strong>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-5 eventItem">
+        <a routerLink="/atelier/{{idIntermediation}}" title="atelier">
+          <label style="background-color:rgb(15, 131, 92);">
+            <i class="fa fa-microphone"></i>
+          </label>
+          <span class="hidden-xs">Atelier</span>
+        </a>
+      </div>
+      <div class="col-xs-7 info">
+        <strong>Valider votre exposé</strong>
+        <p>
+          A valider avant le 14 mai 2018
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-5 eventItem">
+        <a routerLink="/participants/{{idIntermediation}}" title="participants">
+          <label style="background-color: tomato;">
+            <i class="fa fa-users"></i>
+          </label>
+          <span class="hidden-xs">participants</span>
+        </a>
+      </div>
+      <div class="col-xs-7 info">
+        <strong>Définir le(s) collaborateurs présent(s)</strong>
+        <p>A valider avant le 10 juin 2018 </p>
+      </div>
+    </div>
+ 
+
+    <div class="row">
+      <div class="col-xs-5 eventItem">
+        <a routerLink="/speed-meetings/{{idIntermediation}}" title="speed meetings">
+          <label style="background-color:indigo;">
+            <i class="fa fa-handshake-o"></i>
+          </label>
+          <span class="hidden-xs">speed meetings</span>
+        </a>
+      </div>
+      <div class="col-xs-7 info disabled">
+        <strong>Choix de vos rendez-vous</strong>
+        <p>
+          Ouvert dans X jours
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-5 eventItem">
+        <a routerLink="/jour/{{idIntermediation}}" title="jour 'j'">
+          <label style="background-color: darkorange;">
+            <i class="fa fa-calendar"></i>
+          </label>
+          <span class="hidden-xs">Pratique</span>
+        </a>
+      </div>
+      <div class="col-xs-7 info">
+        <strong>Renseignements pratiques</strong>
+      </div>
+    </div>
+
+
+  </div>
+</div>

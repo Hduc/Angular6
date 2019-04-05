@@ -1,0 +1,24 @@
+/* logo */
+a.logo {
+    width: 270px;
+    text-decoration: none;
+}
+a.logo img{
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+.logo p{
+   padding: 5px;
+   color: #250a0e;
+}
+.logo small{
+    color:#25230e;
+    font-size: 0.6em;
+    margin: -15px 25px 10px 20px;
+    float: right;
+}
+#header{
+    float: left;
+}
+

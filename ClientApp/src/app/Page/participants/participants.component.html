@@ -1,0 +1,132 @@
+<!-- <h3>Participant(s) à l’événement</h3> -->
+<h3 *ngIf="status == 0">Un badge nominatif sera remis pour les personnes ci dessous</h3>
+<div *ngIf="status == 0">
+  <a (click)="Back(1)" id="addItem" class="btn btn-danger">
+    <i class="fa fa-plus-circle"></i>
+    Add
+  </a>
+  <br />
+  <div>
+    <table class="table" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <thead>
+        <tr>
+          <th scope="col" class="hidden-xs" style="width: 10%"></th>
+          <!--Photos de profil-->
+          <th scope="col" style="width: 15%">
+            <mfDefaultSorter by="prenomContact">
+              <span style="color: #fff">Prénom Nom </span>
+            </mfDefaultSorter>
+          </th>
+          <!-- <th scope="col" class="hidden-xs">
+            <mfDefaultSorter by="nomContact"><span style="color: #fff">Nom</span>  </mfDefaultSorter>
+          </th> -->
+          <th scope="col" style="width: 15%">
+            <mfDefaultSorter by="fonctionContact">
+              <span style="color: #fff">Fonction</span>
+            </mfDefaultSorter>
+          </th>
+          <th scope="col" style="width: 15%">
+            <mfDefaultSorter by="NomSociete">
+              <span style="color: #fff">Nom Societe</span>
+            </mfDefaultSorter>
+          </th>
+          <th scope="col" style="width: 15%">
+            <mfDefaultSorter by="portqble">
+              <span style="color: #fff">Numéro portable</span>
+            </mfDefaultSorter>
+          </th>
+          <th scope="col" class="hidden-sm hidden-xs" style="width: 20%">
+            <mfDefaultSorter by="emailContact">
+              <span style="color: #fff">Mail</span>
+            </mfDefaultSorter>
+          </th>
+          <th scope="col">
+            <mfDefaultSorter>
+              <span style="color: #fff">Fonction</span>
+            </mfDefaultSorter>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of mf.data; let i=index" id="{{item.idcontact}}">
+          <td class="hidden-xs">
+            <div class="avatar">
+              <img class="img-responsive" src="{{item.photoUrl}}" >
+            </div>
+          </td>
+          <td>{{item.prenomContact}} {{item.nomContact}}</td>
+          <!-- <td class="hidden-xs">{{item.nomContact}}</td> -->
+          <td>{{item.fonctionGenerique}}</td>
+          <td>{{item.nomSociete}}</td>
+          <td>{{item.portableContact}}</td>
+
+          <td class="hidden-sm hidden-xs">{{item.emailContact}}</td>
+          <td id="deleteItem">
+            <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#modal_delete">Open Modal</button>
+            <button id="closeModalButton" [hidden]="true" data-dismiss="modal">Close Modal</button>
+
+            <a (click)="ShowPopup(item.idcontact)" title="effacer" style="color: red;">
+              <i class="fa fa-times-circle"></i>
+            </a>
+            <!-- <a data-toggle="modal" (click)="onDelete(item.idcontact)" data-target="#modal_delete" title="effacer" style="color: red;">
+              <i class="fa fa-times-circle"></i>
+            </a> -->
+            <a (click)="Edit(item.idcontact)" title="modifier">
+              <i class="fa fa-pencil-square"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <!-- loader -->
+    <div class="loader"></div>
+    <h3 *ngIf="notdata" class="text-center">
+      Aucun événement sélectionné
+    </h3>
+    <!-- <pagination-controls *ngIf="!notdata" (pageChange)="p = $event" class="text-center"></pagination-controls> -->
+  </div>
+</div>
+<!-- From add -->
+<app-addparticipant *ngIf="status ==1"></app-addparticipant>
+<!-- form edit -->
+<app-updateparticipant *ngIf="status == 2" [idContact]="idContact"  ></app-updateparticipant>
+
+<!-- Modal delete-->
+<div class="modal fade" id="modal_delete" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">SUPPRESSION DU CONTACT</h4>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="swal2-icon swal2-warning">
+              <span class="swal2-icon-text">!</span>
+            </div>
+          </div>
+          <div class="col-xs-8">
+            <p class="cusText">Vous êtes sur le point de supprimer ce contact.</p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn_delete" data-dismiss="modal" (click)="onDeleted()" value="">VALIDER</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ANNULER</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,60 @@
+<div class="col-xs-12 breadcrumbs">
+</div>
+<div class="row">
+  <div class="col-md-3 col-sm-12">
+    <app-menu-item></app-menu-item>
+  </div>
+  <div class="col-md-9 col-sm-12" style="margin-top: 20px; font-size:1.2em;">
+    <div class="row">
+      <div class="col-xs-12">
+        <div *ngIf="eventHistory=='true'" class="pull-right" style="margin-bottom: 15px;">
+          <button type="submit" class="btn btn-danger" (click)="chage()">En Cours</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div *ngFor="let item of EnqueteSociete">
+      <a class="row" (click)="eventClick(item.idintermediation)">
+        <div class="col-sm-4 col-xs-6">
+          <i class="fa fa-circle" aria-hidden="true"></i>
+          <img class="cusImg rounded mx-auto" src="http://{{item.siteWebIntermediation}}/imgs/logo.png">
+        </div>
+        <span class="col-sm-5 col-xs-4">{{item.dateIntermediation |date : 'd MMMM y'}} - {{item.lieu}}</span>
+        <div class="col-sm-3 col-xs-2">
+          <i class="fa fa-bell"></i>
+          <div class="fa-stack fa-1x">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <strong class="fa-stack-1x text">{{item.count >0 ?item.count - 1: item.count}}</strong>
+          </div>
+          <span class="hidden-sm hidden-xs text-danger"> Insciption finalisée</span>
+        </div>
+      </a>
+
+    </div> -->
+    <a class="row" *ngFor="let item of EnqueteSociete" (click)="eventClick(item.idintermediation,item.idListeService)">
+      <div class="col-md-6 col-xs-12" style="margin-bottom: 15px;">
+          <img src="http://ovh-dev-profiler.premiumcontact.fr/imgs/MEP/Picto_service/{{item.idListeService}}.gif">
+          {{item.dateIntermediation |date : 'y'}} - {{item.intermediation || uppercase}} - {{item.lieu}} -
+          {{item.dateIntermediation |date : 'd/MM/y'}}
+      </div>
+      <div class="col-md-3 col-xs-3">
+        <i class="fa fa-bell"></i>
+        <div class="fa-stack fa-1x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <strong class="fa-stack-1x text">{{item.count >0 ?item.count - 1: item.count}}</strong>
+        </div>
+        <span class="hidden-sm hidden-xs text-danger"> Insciption finalisée</span>
+      </div>
+      <div class="col-md-3 col-xs-9">
+        <div class="progress">
+          <div class="progress-bar progress-bar-deactivate" style="width:39%">
+            39%
+          </div>
+        </div>
+      </div>
+    </a>
+    <h3 *ngIf="notdata" class="text-center">
+      Aucun événement sélectionné
+    </h3>
+  </div>
+</div>

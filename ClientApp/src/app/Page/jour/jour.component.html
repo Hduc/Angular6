@@ -1,0 +1,140 @@
+<ul class="list-group">
+  <li>
+    <a type="button" class="expertise" (click)="isCollapsed_LIVRAISON = !isCollapsed_LIVRAISON" [attr.aria-expanded]="!isCollapsed_LIVRAISON"
+      aria-controls="isCollapsed_LIVRAISON">LIVRAISON</a>
+
+    <div id="isCollapsed_LIVRAISON" [collapse]="isCollapsed_LIVRAISON" class="card card-block card-header row">
+      <div class="col-xs-12">
+
+      </div>
+    </div>
+  </li>
+  <li>
+    <a type="button" class="competence" (click)="isCollapsed_HORAIRE = !isCollapsed_HORAIRE" [attr.aria-expanded]="!isCollapsed_HORAIRE"
+      aria-controls="isCollapsed_HORAIRE">HORAIRE</a>
+
+    <div id="isCollapsed_HORAIRE" [collapse]="isCollapsed_HORAIRE" class="card card-block card-header row">
+      <div class="row">
+        <div class="col-xs-3">
+          9h00
+        </div>
+        <div class="col-xs-9">
+          <label> Discours Ouverture</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          10h45
+        </div>
+        <div class="col-xs-9">
+          <label> Les défis de lindustrie 4.0</label>
+          <p>Monsieur jesaistout</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          16h00
+        </div>
+        <div class="col-xs-9">
+          <label> Lintelligence Artificelle</label>
+          <p>Monsieur André Pensebete, Expert AI, DFM-Europe</p>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <a type="button" class="infor-admin" (click)="isCollapsed_ACCES = !isCollapsed_ACCES" [attr.aria-expanded]="!isCollapsed_ACCES"
+      aria-controls="collapseBasic">ACCÈS</a>
+
+    <div id="isCollapsed_ACCES" [collapse]="isCollapsed_ACCES" class="card card-block card-header row">
+      <div class="col-xs-12">
+        <h4 class="text-center">
+          L'accueil des participants commencera dès 8h15, le 13 juin 2018 (café, thé, viennoiseries).
+        </h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d90440.83174909827!2d-0.561553!3d44.897381!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe9a61444765a6d7e!2sMatmut+ATLANTIQUE!5e0!3m2!1sen!2sfr!4v1533718684916"
+          style="border:0; width: 100%; height: 450px; margin: 5px auto;" allowfullscreen></iframe>
+      </div>
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <label style="background-color: tomato;" class="address-icon">
+              <i class="fa fa-car"></i>
+            </label>
+            <h4>En voiture :</h4>
+            <p class="address-infor">
+              Par l’autoroute A11 : Sortie porte 25, direction la Chapelle-sur-Erdre Par le périphérique nord : Porte
+              39 Sortie La Chapelle-sur-Erdre
+              Parking gratuit sur place.
+            </p>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <label style="background-color: olivedrab;" class="address-icon">
+              <i class="fa fa-bus"></i>
+            </label>
+            <h4>Depuis la gare TGV de Nantes,</h4>
+            <p class="address-infor">
+              À seulement 15 minutes de la gare TGV en tram-train, station Erdre Active.
+            </p>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <label style="background-color: indigo;" class="address-icon">
+              <i class="fa fa-plane"></i>
+            </label>
+            <h4>Depuis l'aéroport Nantes Atlantique :</h4>
+            <p class="address-infor">
+              Toutes les 20 minutes, des navettes vous emmènenent jusqu'à la gare TGV. Prenez ensuite le tram-train
+              jusqu'à la station
+              Erdre Active (comptez 20 minutes de trajets pour la navette aéroport-gare TGV + 15 minutes de
+              tram-train).
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div style="width: 60%; margin: 5px auto;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m11!1m3!1d5303.95228431496!2d-0.5648493824615008!3d44.897543901370085!2m2!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe9a61444765a6d7e!2sMatmut+ATLANTIQUE!5e1!3m2!1sen!2sfr!4v1533718968776"
+            width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </li>
+  <!-- <li>
+    <a type="button" class="expertise" (click)="isCollapsed_PLAN = !isCollapsed_PLAN" [attr.aria-expanded]="!isCollapsed_PLAN"
+      aria-controls="isCollapsed_PLAN">PLAN DE L’EVENEMENT</a>
+
+  <div id="isCollapsed_PLAN" [collapse]="isCollapsed_PLAN" class="card card-block card-header row">
+    <div class="col-xs-12">
+
+    </div>
+  </div>
+</li>
+  <li>
+    <a type="button" class="expertise" (click)="isCollapsed_Catalogue = !isCollapsed_Catalogue" [attr.aria-expanded]="!isCollapsed_Catalogue"
+      aria-controls="isCollapsed_Catalogue">Catalogue</a>
+
+    <div id="isCollapsed_Catalogue" [collapse]="isCollapsed_Catalogue" class="card card-block card-header row">
+      <div class="col-xs-12">
+        <div class="text-center catelogue">
+          <h3>
+            Télécharger le program de votre événement ou consultez-le en ligne
+          </h3>
+          <a href="https://www.roche-bobois.com//files/brochures/nvellecollection-2018-2-fr/common/data/0002.pdf"
+            data-fancybox data-caption="" class="btn btn-danger text-uppercase" fancyboxable>Télécharger</a>
+
+          <a class="btn btn-danger text-uppercase" href="https://www.roche-bobois.com//files/brochures/nvellecollection-2018-2-fr/index.html#page/2-3"
+            target="_blank">Consulter</a>
+        </div>
+      </div>
+    </div>
+  </li> -->
+  <li>
+    <a type="button" class="expertise" (click)="isCollapsed_CONTACTSUTILES = !isCollapsed_CONTACTSUTILES"
+      [attr.aria-expanded]="!isCollapsed_LIVRAISON" aria-controls="isCollapsed_CONTACTSUTILES">CONTACTS UTILES</a>
+
+    <div id="isCollapsed_CONTACTSUTILES" [collapse]="isCollapsed_CONTACTSUTILES" class="card card-block card-header row">
+      <div class="col-xs-12">
+
+      </div>
+    </div>
+  </li>
+</ul>

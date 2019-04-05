@@ -1,0 +1,64 @@
+<div class='container-fluid'>
+    <div class='row'>
+      <div class='col-12'>
+        <div class='navbar navbar-light'>
+          <div class='navbar'>
+            <app-logo></app-logo>
+          </div>
+        </div>
+      </div>
+      <div class='col-12 body-content'>
+        <app-banner></app-banner>
+        <div class="row" id="content">
+          <h4 class="title">Bienvenue dans votre espace de gestion de vos événements PREMIUM CONTACT.</h4>
+          <form action="#" class="login">
+            <div class="form-group">
+              <label for="UserName">Identifiant :</label>
+              <input type="text" class="form-control" name="UserName" ngModel #UserName="ngModel" required placeholder="Identifiant">
+              <span class="pull-right" *ngIf="login && !UserName.valid || error_id" data-toggle="modal" data-target="#showEmail">
+                <i class="glyphicon glyphicon-triangle-right"></i>Identifiant oublié</span>
+            </div>
+            <div class="form-group">
+              <label for="pwd">Mot de passe :</label>
+              <input type="password" class="form-control" name="Password" ngModel #Password="ngModel" required placeholder="Mot de passe *">
+              <span class="pull-right" *ngIf="login && !Password.valid || error_pass" data-toggle="modal" data-target="#showEmail">
+                <i class="glyphicon glyphicon-triangle-right"></i>Mot de passe oublié</span>
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-danger" (click)="OnLogin(UserName.value,Password.value)">SE CONNECTER</button>
+            </div>
+          </form>
+          <div id="logo">
+            <app-sliderlogo></app-sliderlogo>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal email-->
+  <div class="modal fade" id="showEmail" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">IDENTIFIANT PREMIUM CONTACT OUBLIÉ</h4>
+        </div>
+        <div class="container-fluid">
+          <form action="#" >
+            <div class="cusfrom">
+              <label>Saisissez votre adresse e-mail</label>
+              <input class="form-control" type="email" name="Email" [(ngModel)]="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                 required placeholder="E-mail" />
+                <span *ngIf="error_email" class="aler alert-danger">{{strErrorEmail}}</span>
+            </div>
+            <div class="modal-footer" >
+               <button type="submit" class="btn btn-danger" (click)="SendEmail()">VALIDER</button> <!--(click)="SentEmail()" -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

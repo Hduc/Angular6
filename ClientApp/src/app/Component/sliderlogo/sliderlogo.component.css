@@ -1,0 +1,197 @@
+.tile {
+    min-height: 200px;
+    background-color: #ccc;
+    background-size: cover !important;
+}
+
+.tile h1 {
+    text-align: center;
+    line-height: 200px;
+    background: rgba(0, 0, 0, 0.32);
+    color: white;
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+
+.wBg {
+    background: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carBtn {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+    border-radius: 999px;
+}
+
+.leftRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+    border-radius: 999px;
+    left: 0;
+}
+
+.rightRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+    border-radius: 999px;
+    right: 0;
+}
+ul .ngxcarouselPoint{
+    display: none !important;
+}
+
+@media (max-width: 1200px){
+    .agendaPC {
+        background-size: 123px !important;
+        background-position: 120% 146% !important;
+    }
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.left-content {
+    padding-top: 8px;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.agendaPC {
+    height: 260px;
+    text-align: left;
+    padding: 0 1.5em 1.5em 1.5em !important;
+    border: solid 1px #ccc;
+    background-repeat: no-repeat;
+    background-position: 150% 200%;
+    background-size: 64%;
+    border-radius: 0px !important;
+}
+
+.rounded {
+    border-radius: 4px !important;
+}
+.rounded {
+    border-radius: 4px !important;
+}
+.secteurPC {
+    display: none;
+    background-color: #f5f5f5;
+    border-bottom: solid 1px #ccc;
+    padding: 1px 8px 1px 8px;
+    margin-left: -1.5em;
+    margin-right: -1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #555;
+    margin-top: 5px;
+    text-shadow: none;
+    font-weight: normal;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+h4.title-v2 {
+    color: #555;
+    position: relative;
+    margin-bottom: 30px;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 30px;
+}
+h4.title-v2:after {
+    left: 50%;
+    width: 70px;
+    height: 2px;
+    content: " ";
+    bottom: -10px;
+    background: #746f6f;
+    position: absolute;
+}
+h4.title-v2.title-center:after{
+    left: 50%;
+    width:160px;
+    margin-left: -103px;
+}
+p {
+    color: #555;
+} 
+
+@media(max-width:992px){
+    #secteurs{
+        margin-bottom: 15px;
+    }
+    .agendaPC {
+        background-size: 64%;
+    }
+}
+.cusIcon{
+    max-height:30px;margin:10px 0;
+    /* width: 80%; */
+}
+@media(max-width:767px){
+    .agendaPC {
+        background-position: 112% 150% !important;
+        background-size: 64%;
+        border-radius: 0px !important;
+    }
+    
+    h4.title-v2 {
+        font-size: 17px !important;
+    }
+    h4.title-v2.title-center:after{
+        left: 0%;
+        width: 0px;
+        margin-left: 0px;
+    }
+}
+
+ngx-carousel{
+    text-align: center;
+
+}
+ngx-carousel ngx-tile a{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    
+}
+ngx-carousel ngx-tile a:hover{
+    box-shadow: 1px 1px 18px #bbb;
+}
+ngx-carousel ngx-tile .backgroud{
+    position: absolute;
+    bottom: -22px;
+    right: -29px;
+    z-index: 2;
+    background-repeat:no-repeat;
+    transform: scale(2,2);
+    background-position:0px 0px;
+    width:80px;
+    height: 80px;
+}

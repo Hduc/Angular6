@@ -1,0 +1,35 @@
+
+h4{
+    margin-bottom:30px; 
+}
+.fa.fa-circle{
+    color: red;
+    font-size: 10px;
+}
+.fa.fa-bell{
+    font-size: 20px;
+}
+ a.row{
+    margin-bottom: 20px;
+    color: black;
+    display: block
+}
+.fa-stack .fa.fa-circle.fa-stack-2x{
+    font-size: 23px;
+}
+.fa-stack .fa-stack-1x.text{
+    font-size: 10px;
+    color: white;
+}
+.fa-stack.fa-1x{
+    margin-top: -21px;
+    margin-left: -14px;
+    line-height: 1.5em;
+}
+.cusImg {
+    transform: scale(0.7,0.7);
+    background-position:0px 0px;
+    width:60px;
+    height: 69px;
+    margin-bottom: -30px;
+}

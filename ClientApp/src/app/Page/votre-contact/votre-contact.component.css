@@ -1,0 +1,123 @@
+#addItem {
+    display: block;
+    text-decoration: none;
+    float: right;
+    padding-right: 15px;
+    margin-bottom: 15px;
+}
+table thead{
+    background-color:  #d9534e;
+}
+.information{
+    margin-top:50px;
+}
+.table-responsive{
+    clear: right;
+}
+.table-responsive .table thead{
+    background-color: rgb(221, 217, 217);
+}
+#deleteItem{
+    width: 100px;
+    margin: 5px auto;
+}
+#deleteItem a {
+    font-size: 2.2em;
+    margin-left: 5px;
+    text-align: center;
+    margin-top: -5px !important;
+    text-decoration: none;
+}
+.avatar{
+    width: 60px;
+    height: 60px;
+    margin: 5px auto; 
+}
+.avatar img{
+    border-radius: 50%;
+}
+
+/* ///////////////////////////modal /////////////// */
+.modal{
+    margin: 5px auto;
+    margin-top: 250px;
+}
+.modal-footer {
+    padding:0px;
+    text-align: center;
+    border-top: 0px solid #e5e5e5;
+}
+
+.modal .modal-dialog .modal-header{
+    text-transform: uppercase;
+}
+.modal .modal-dialog .container-fluid{
+   margin: 10px ;
+}
+div .modal-header {
+    text-transform: uppercase;
+    background-color: #3e64e3 ;
+    color: white ;
+    text-align: center ;
+}
+.modal-dialog{
+    width: 500px !important;
+}
+
+.swal2-icon.swal2-warning {
+    border-color: #facea8;
+    color: #f8bb86;
+}
+
+.popup-types .swal2-icon, .popup-types button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto !important;
+}
+[class^='swal2'] {
+    -webkit-tap-highlight-color: transparent;
+}
+.swal2-icon {
+    position: relative;
+    justify-content: center;
+    width: 5em;
+    height: 5em;
+    margin: 1.25em auto 1.875em;
+    border: .25em solid transparent;
+    border-radius: 50%;
+    line-height: 5em;
+    cursor: default;
+    box-sizing: content-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    zoom: normal;
+    display: flex;
+}
+.cusText{
+    margin-top:23px;
+    font-size: 20px;
+}
+.loader {
+    position: absolute;
+    border-top: 8px solid blue;
+    border-right: 8px solid green;
+    border-bottom: 8px solid red;
+    border-left: 8px solid pink;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    top: 200px;
+    left: 48%;
+    z-index: 4;
+
+  }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

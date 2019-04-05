@@ -1,0 +1,53 @@
+
+@media(min-width:1623px){
+    .wrapper .img-fluid {
+        width: 100%;
+        margin: 5px auto;
+        height: 300px;
+    }
+}
+.wrapper img::before{
+    background-color: #000;
+    /* opacity: 0; */
+}
+    #banner {
+        position: relative;
+        display: block;
+        max-height: 600px;
+    }
+        #banner .info {
+            position: absolute;
+            top: 10%;
+            left: 0%;
+            z-index: 3;
+            display: block;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            align-self: center;
+        }
+        .avatar{
+            width: 120px;
+            height: 120px;
+            margin: 5px auto; 
+        }
+        .avatar img{
+            border-radius: 50%;
+        }
+    @media(max-width:1150px){
+        .avatar{
+            width: 60px;
+            height: 60px;
+            margin: 5px auto; 
+        }
+    }
+    @media(max-width:848px){
+        .avatar{
+            width: 60px;
+            height: 60px;
+            margin: 5px auto; 
+        }
+        .info h2, .info p{
+            display: none;
+        }
+    }

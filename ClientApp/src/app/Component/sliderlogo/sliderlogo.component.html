@@ -1,0 +1,31 @@
+<div class="title">
+  <h4 class="title-v2 title-center title-center">Les prochains évènements PREMIUM CONTACT</h4>
+</div>
+<ngx-carousel [inputs]="carouselTileOne">
+  <ngx-tile NgxCarouselItem class="col-md-3" *ngFor="let event of EnqueteSociete; let i = index;">
+    <div class="wBg">
+      <a href="{{event.siteWebIntermediation.replace('/imgs/logo.png','')}}" class="parent" style="text-decoration:none;" target="_blank" >
+        <div class="g-mb-30 parent">
+          <article class="u-shadow-v11 rounded agendaECF agendaPC img-responsive">
+            <div class="g-pa-30">
+              <img src="{{event.siteWebIntermediation}}" 
+              class="cusIcon img-responsive block">
+              <br/>
+              <h5>{{event.intermediation}}</h5>
+              <p>
+                <strong>
+                  {{event.dateIntermediation |date : 'd MMMM y'}}
+                  <br/>
+                  <span class="lieu">{{event.lieu}}</span>
+                </strong>
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="backgroud" [style.backgroundImage]="'url('+event.siteWebIntermediation+')'"></div>
+      </a>
+    </div>
+  </ngx-tile>
+  <button NgxCarouselPrev class="leftRs">&lt;</button>
+  <button NgxCarouselNext class="rightRs">&gt;</button>
+</ngx-carousel>

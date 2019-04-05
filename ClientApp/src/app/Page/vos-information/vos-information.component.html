@@ -1,0 +1,269 @@
+<ul class="list-group">
+  <li>
+    <a type="button" class="infor-admin" (click)="isCollapsed_infor = !isCollapsed_infor" [attr.aria-expanded]="!isCollapsed_infor"
+      aria-controls="infor">FICHE DE PRESENTATION</a>
+  </li>
+  <div id="infor" [collapse]="isCollapsed_infor" class="card card-block card-header row">
+    <div class="col-xs-12">
+        <!-- *ngIf="!editinfo" -->
+      <!-- <div class="row" *ngIf="editinfo" >
+        <h3>
+          {{societe.nomSociete | uppercase }}
+        </h3>
+        <label>
+          {{societe.adresse1}}
+        </label>
+        <p>
+          Tél:{{societe.telephoneSociete}}
+        </p>
+        <p>
+          Fax:{{societe.telephoneSociete}}
+        </p>
+        <p>
+          {{societe.siteInternet}}
+        </p>
+        <button type="button" class="btn btn-danger" (click)="editinfo()" style="padding: 7px 20px;"> EDITER</button>
+      </div> -->
+      <!-- *ngIf="editinfo" -->
+      <!-- <form  id="profil" *ngIf="editinfo" (submit)="UpdateSociete($event)">
+        <div class="row">
+          <h4 class="col-sm-12" (click)="editinfo()">INFORMATION SOCIÉTÉ
+            <i data-fancybox-close class="fa fa-times pull-right"></i>
+          </h4>
+        </div>
+        <div class="row" style="margin-top: 35px;">
+          <div class="col-md-1 col-sm-12 avatarsociete">
+            <img [src]="imgSrc" class="img-responsive" alt="" (change)="changeAvatar($event)">
+            <input type="file" #file name="file" (change)="ChangeAvatar($event.target.files)" />
+          </div>
+          <div class="col-md-5 col-sm-6">
+            <label for="Société">Société</label>
+            <input type="text" class="form-control" value="{{societe.nomSociete}}" disabled>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <label for="Groupe">Groupe</label>
+            <input type="text" id="Groupe" class="form-control" value="{{(societe.groupe !=  undefined) ? societe.groupe : ' ' }}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="Chiffre">Chiffre d’affaire (M€)</label>
+            <ng-select name="TypeCA" id="TypeCA" #TypeCA="ngModel" [items]="arrayTypeCA" bindLabel="typeCA" bindValue="idTypeCA"
+              [(ngModel)]="setIdTypeCA"></ng-select>
+          </div>
+          <div class="col-sm-6">
+            <label for="Effectif">Effectif</label>
+            <ng-select name="Effectif" id="Effectif" #Effectif="ngModel" [items]="arraytypeEffectif" bindLabel="typeEffectif"
+              bindValue="idTypeEffectif" [(ngModel)]="setIdTypeEffectif"></ng-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="Adresse">Adresse</label>
+            <input type="text" id="Adress1" class="form-control" [ngClass]="{ 'is-invalid': !Adress1.valid && Adress1.touched || !formProfil && !Adress1.valid }"
+              value="{{societe.adresse1}}" name="Adress1" ngModel #Adress1="ngModel" required>
+            <span *ngIf="!Adress1.valid && Adress1.touched || !formProfil && !Adress1.valid" class="text-danger">
+              Adress non vide</span>
+
+          </div>
+          <div class="col-sm-6">
+            <a data-fancybox="" data-src="#APE" data-modal="true" href="javascript:;" style="color:#333">
+              <label for="CodeAPE">Code APE</label>
+              <input type="text" id="CodeAPE" class="form-control" value="{{setApe2008}}">
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="Adresse2">Adresse 2</label>
+            <input type="text" id="Adress2" class="form-control" value="{{(societe.adresse2 !=  undefined) ? societe.adresse2 : ' ' }}">
+          </div>
+          <div class="col-sm-3">
+            <label for="Pays">Pays</label>
+            <ng-select name="Pays" id="Pays" #Pays="ngModel" [items]="arrayliste_Pays" bindLabel="pays" bindValue="idListePays"
+              groupBy="abreviationPays" [(ngModel)]="setPays" dropdownPosition="top"></ng-select>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="CodePostal">Code Postal</label>
+            <input type="text" id="CodePostal" class="form-control" [ngClass]="{ 'is-invalid': !CodePostal.valid && CodePostal.touched || !formProfil && !CodePostal.valid }"
+              value="{{societe.codePostal}}" name="CodePostal" ngModel #CodePostal="ngModel" required>
+            <span *ngIf="!CodePostal.valid && CodePostal.touched || !formProfil && !CodePostal.valid" class="text-danger">
+              CodePostal non vide</span>
+
+          </div>
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+            <label for="Tel">Tel</label>
+            <input type="text" id="Tel" class="form-control" [ngClass]="{ 'is-invalid': !Tel.valid && Tel.touched || !formProfil && !Tel.valid }"
+              value="{{societe.telephoneSociete}}" name="Tel" ngModel #Tel="ngModel" required>
+            <span *ngIf="!Tel.valid && Tel.touched || !formProfil && !Tel.valid" class="text-danger"> Telephone non
+              vide</span>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="Ville">Ville</label>
+            <input type="text" id="Ville" class="form-control" value="{{(societe.ville !=  undefined) ? societe.ville : ' ' }}">
+          </div>
+          <div class="col-sm-6">
+            <label for="Siret">Siret</label>
+            <input type="text" id="Siret" class="form-control" value="{{(societe.siret !=  undefined) ? societe.siret : ' ' }}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="Email">Email</label>
+            <input type="email" id="Email" class="form-control" [ngClass]="{ 'is-invalid': !Email.valid && Email.touched || !formProfil && !Email.valid }"
+              value="{{societe.emailSociete}}" name="Email" ngModel #Email="ngModel" required>
+            <span *ngIf="!Email.valid && Email.touched || !formProfil && !Email.valid" class="text-danger"> Email non
+              vide</span>
+
+          </div>
+          <div class="col-sm-6">
+            <label for="Siteinternet">Site internet</label>
+            <input type="text" id="SiteInternet" class="form-control" [ngClass]="{ 'is-invalid': !SiteInternet.valid && SiteInternet.touched || !formProfil && !SiteInternet.valid }"
+              value="{{societe.siteInternet}}" name="SiteInternet" ngModel #SiteInternet="ngModel" required>
+            <span *ngIf="!SiteInternet.valid && SiteInternet.touched || !formProfil && !SiteInternet.valid" class="text-danger">
+              SiteInternet non vide</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="Nature">Nature</label>
+            <ng-select name="Nature" id="Nature" #Nature="ngModel" [items]="arraytypeNature" bindLabel="typeNature"
+              bindValue="idTypeNature" [(ngModel)]="setIdNature"></ng-select>
+          </div>
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+            <label for="Formejuridique">Forme juridique</label>
+            <ng-select name="Forme" id="Forme" #Forme="ngModel" [items]="arrayFormeJuridique" bindLabel="biblioNiv3"
+              bindValue="idbiblioNiv3" [(ngModel)]="setIdFormeJuridique">
+            </ng-select>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="pull-right submit">
+            <label *ngIf="TypeMesssage" class="text-{{TypeMesssage}}">{{Message}}</label>
+            <button type="submit" class="btn btn-danger">SAUVEGARDER</button>
+            <button type="reset" class="btn btn-default">SUPPRIMER</button>
+          </div>
+        </div>
+      </form> -->
+    </div>
+  </div>
+
+  <li>
+    <a type="button" class="expertise" (click)="isCollapsed_expertise = !isCollapsed_expertise" [attr.aria-expanded]="!isCollapsed_expertise"
+      aria-controls="isCollapsed_expertise">Expertise</a>
+  </li>
+  <div id="isCollapsed_expertise" [collapse]="isCollapsed_expertise" class="card card-block card-header row">
+    <div class="col-xs-12">
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Principale(s) Activité(s)" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Détail(s) de I'offre" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Objets" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Commentaires" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Nos outils" />
+        </div>
+        <div class="form-group ">
+          <input type="text" class="form-control" placeholder="Notre expérience" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Nouveauté(s) / innovation(s)" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Cibles concernées par votre offre" />
+        </div>
+        <div class="row">
+          <div class="col-xs-12 pull-right">
+            <div class="pull-right submit">
+              <button type="submit" class="btn btn-danger" (click)="save()">SAUVEGARDER</button>
+              <button type="reset" class="btn btn-default">SUPPRIMER</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <li>
+    <a type="button" class="competence" (click)="isCollapsed_competence = !isCollapsed_competence" [attr.aria-expanded]="!isCollapsed_competence"
+      aria-controls="isCollapsed_competence">VOS COMPETENCES</a>
+  </li>
+  <div id="isCollapsed_competence" [collapse]="isCollapsed_competence" class="card card-block card-header row">
+    <div class="col-xs-12">
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Solution de pilotage de I'Activité de production en temps réel" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Solution de gestion de I'activité industrielle" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Lean et synchronisation de la chaine logistique et industrielle" />
+        </div>
+        <div class="row">
+          <div class="col-xs-12 pull-right">
+            <div class="pull-right submit">
+              <button type="submit" class="btn btn-danger" (click)="save()">SAUVEGARDER</button>
+              <button type="reset" class="btn btn-default">SUPPRIMER</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ul>
+
+<form id="APE" action="" method="post" style="display: none; width:45%;">
+  <h4>Code APE <i data-fancybox-close class="fa fa-times pull-right"></i></h4>
+  <div class="row">
+    <div class="col-sm-12">
+      <i class="fa fa-search" (click)="search(searchape.value)"></i>
+      <input #searchape type="text" class="form-control" style="width:95%" (keyup.enter)="search(searchape.value)"
+        placeholder="searching...">
+    </div>
+  </div>
+  <div class="row" style="margin: 15px;">
+    <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="15">
+      <thead style="text-align: center;">
+        <th style="width:20%">
+          <mfDefaultSorter by="idape2008">APE Code</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="libelleApe2008">Libelle APE</mfDefaultSorter>
+        </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of mf.data; let i=index" (click)="ChangeApe(item.idape2008)" data-fancybox-close>
+          <td>
+            +{{item.idape2008}}
+          </td>
+          <td>
+            {{item.libelleApe2008}}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</form>

@@ -1,0 +1,78 @@
+<div id="social">
+  <h3>Votre KIT communication est à votre disposition </h3>
+  <div class=row>
+    <div class="col-xs-1">
+      <i class="fa fa-download"></i>
+    </div>
+    <div class="col-xs-11">
+      <h4>Kit Communication</h4>
+      <ngx-masonry [useImagesLoaded]="true">
+        <ngxMasonryItem *ngFor="let item of masonryItems">
+          <a href="{{item.link}}" data-fancybox>
+            <img src="{{item.link}}">
+          </a>
+        </ngxMasonryItem>
+      </ngx-masonry>
+
+
+
+      <!-- <a data-fancybox="" data-animation-duration="500" data-src="#animatedModal" href="javascript:;" class="btn btn-primary">Open
+        demo</a>
+      <div style="display: inline-block;" id="animatedModal" class="animated-modal text-center p-5 fancybox-content">
+        <h2>
+          Success!
+        </h2>
+        <p>
+          That thing that you were trying to do worked.<br>
+        </p>
+        <p class="mb-0">
+          <svg width="150" height="150" viewBox="0 0 510 510" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path fill="#fff" d="M150.45,206.55l-35.7,35.7L229.5,357l255-255l-35.7-35.7L229.5,285.6L150.45,206.55z M459,255c0,112.2-91.8,204-204,204 S51,367.2,51,255S142.8,51,255,51c20.4,0,38.25,2.55,56.1,7.65l40.801-40.8C321.3,7.65,288.15,0,255,0C114.75,0,0,114.75,0,255 s114.75,255,255,255s255-114.75,255-255H459z"></path>
+          </svg>
+        </p>
+        <button type="button" data-fancybox-close="" class="fancybox-button fancybox-close-small" title="Close"><svg
+            xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24">
+            <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+          </svg></button>
+      </div> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-1">
+      <i class="fa fa-pencil-square-o"></i>
+    </div>
+    <div class="col-xs-11">
+      <h4>Kit Communication</h4>
+      <p>
+        Télécharger le modèle darticle
+      </p>
+      <p>
+        Télécharger la modèle participation
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-1">
+      <i class="fa fa-credit-card-alt"></i>
+    </div>
+    <div class="col-xs-11">
+      <h4>Demande daccrédtation</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 ">
+      <div class="share pull-right">
+        <a href="https://www.linkedin.com/company/premium-contact" target="_blank">
+          <i class="fa fa-linkedin-square" title="linkedin"></i>linkedin
+        </a>
+        <a href="https://twitter.com/hashtag/premiumcontact" target="_blank">
+          <i class="fa fa-twitter-square" title="twitter"></i>twitter
+        </a>
+        <a href="https://www.facebook.com/PremiumcontactMaster.fr/" target="_blank">
+          <i class="fa fa-facebook-official" title="facebook"></i>facebook
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>

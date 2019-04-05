@@ -1,0 +1,158 @@
+<ul class="list-group">
+  <li *ngIf="isAdmin">
+    <a type="button" class="intervenant" (click)="isCollapsed_intervenant = !isCollapsed_intervenant"
+      [attr.aria-expanded]="!isCollapsed_intervenant" aria-controls="isCollapsed_intervenant">Intervenant</a>
+  </li>
+  <div *ngIf="!edit && isAdmin" id="isCollapsed_intervenant" [collapse]="isCollapsed_intervenant" class="card card-block card-header row">
+    <a (click)="Edit(item.idUtilisateur)" id="addItem" class=" btn btn-danger">
+      <i class="fa fa-plus-circle"></i>
+      Add
+    </a>
+    <div class="col-xs-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Photos de profil</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Fonction</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Fonction</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of listeUtilisateur | paginate: { itemsPerPage: 10, currentPage: p }; item as i;">
+          <tr>
+            <td></td>
+            <td>{{item.prenomUtilisateur}}</td>
+            <td>{{item.nomUtilisateur}}</td>
+            <td>{{item.fonctionUtilisateur}}</td>
+            <td>{{item.emailUtilisateur}}</td>
+            <td id="deleteItem">
+              <a data-toggle="modal" data-target="#filtre" title="effacer" style="color: red;">
+                <i class="fa fa-times-circle"></i>
+              </a>
+              <a (click)="Edit(item.idUtilisateur)" title="modifier">
+                <i class="fa fa-pencil-square"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- loader -->
+      <div class="loader"></div>
+
+      <h3 *ngIf="notdata" class="text-center">
+        Aucun événement sélectionné
+        <br />
+        <br />
+        <br />
+      </h3>
+      <pagination-controls *ngIf="!notdata" (pageChange)="p = $event" class="text-center"></pagination-controls>
+    </div>
+  </div>
+  <div *ngIf="edit && isAdmin" id="isCollapsed_intervenant" [collapse]="isCollapsed_intervenant" class="card card-block card-header row">
+    <form>
+      <div class="form-group row">
+        <div class="col-xs-6">
+          <input type="text" class="form-control" placeholder="prénom" />
+        </div>
+        <div class="col-xs-6">
+          <input type="text" class="form-control" placeholder="nom" />
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nom de la société" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Fonction" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="courriel" />
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-6">
+          <input type="text" class="form-control" placeholder="portable" />
+        </div>
+        <div class="col-xs-6">
+          <input type="text" class="form-control" placeholder="pro" />
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="adresse" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="adresse (complement)" />
+      </div>
+      <div class="row form-group">
+        <div class="col-xs-6">
+          <input type="text" class="form-control" placeholder="code postal">
+        </div>
+        <div class="col-xs-6">
+          <input type="text" class="form-control" placeholder="Ville">
+        </div>
+      </div>
+      <div class="pull-right submit">
+        <button type="submit" class="btn btn-primary" (click)="Save()">SAUVEGARDER</button>
+        <button type="reset" class="btn btn-default">SUPPRIMER</button>
+      </div>
+    </form>
+  </div>
+  <li>
+    <a type="button" class="presentation" (click)="isCollapsed_presentation = !isCollapsed_presentation"
+      [attr.aria-expanded]="!isCollapsed_presentation" aria-controls="isCollapsed_presentation">Presentation
+      atelier</a>
+  </li>
+  <div id="isCollapsed_presentation" [collapse]="isCollapsed_presentation" class="card card-block card-header row">
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Titre" />
+      </div>
+      <div class="form-group">
+        <textarea type="text" class="form-control" placeholder="Résume de la présentation" name="pwd"></textarea>
+
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Courriel" />
+      </div>
+      <!-- <div class="form-group">
+            <em>Hissorique des présentations</em>
+            <br>
+            <em style="margin-left: 20px; ">Production temps re1el, Lyon 2018, <em style="color: blue">https://profier.PremiumcontactMaster.fit</em></em>
+          </div> -->
+    </form>
+  </div>
+</ul>
+
+
+<!-- Modal -->
+<div class="modal fade" id="filtre" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">SUPPRESSION DU CONTACT</h4>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="swal2-icon swal2-warning">
+              <span class="swal2-icon-text">!</span>
+            </div>
+          </div>
+          <div class="col-xs-8">
+            <p class="cusText">Vous êtes sur le point de supprimer ce contact.</p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">VALIDER</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ANNULER</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

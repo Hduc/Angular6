@@ -1,0 +1,53 @@
+<h3>Liste des organisateurs des événements :</h3>
+<!-- <a href="tel:5555555555">
+  <i class="fa fa-phone-square"></i>
+</a>
+<p>Book now, call <a href="tel:01234567890">01234 567 890</a></p>
+<a href="skype:skype_user?call">Call us using Skype!</a>
+<a href="facetime://5555555555">Call us free using Facetime!</a> -->
+
+<a [routerLink]='["/participants-detail/0"]' id="addItem" class="btn btn-danger">
+  <i class="fa fa-plus-circle"></i>
+</a>
+<br />
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <!--Photos de profil-->
+        <th scope="col">Prénom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Fonction</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Fonction</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of listeUtilisateur | paginate: { itemsPerPage: 10, currentPage: p }; item as i;">
+      <tr>
+        <td>
+          <div class="avatar">
+            <img class="img-responsive" src="/assets/img_avatar.png">
+          </div>
+        </td>
+        <td>{{item.prenomUtilisateur}}</td>
+        <td>{{item.nomUtilisateur}}</td>
+        <td>{{item.fonctionUtilisateur}}</td>
+        <td>{{item.emailUtilisateur}}</td>
+        <td id="deleteItem">
+          <a href="tel:1-562-867-5309" title="Call">
+            <i class="fa fa-phone-square"></i>
+          </a>
+          <a href="mailto:{{item.emailUtilisateur}}" title="Mail">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- loader -->
+  <div class="loader"></div>
+  <h3 *ngIf="notdata" class="text-center">
+    Aucun événement sélectionné
+  </h3>
+</div>

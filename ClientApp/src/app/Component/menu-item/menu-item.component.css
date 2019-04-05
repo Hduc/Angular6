@@ -1,0 +1,101 @@
+.list-group{
+    margin-top: 14px;
+}
+    #menuItem {
+        display: block;
+        width: 100%;
+    }
+    #menuItem .event, .event {
+        width: 90%;
+        float: right;
+        margin: 0px 20px 10px auto;
+    }
+    #menuItem .event span{
+        float: right;
+        display: block;
+        font-weight: bold;
+    }
+    #menuItem .event small{
+        clear: right;
+    }
+    #menuItem .event .fa.fa-arrow-circle-o-up{
+        margin-right: 10px;
+        color: #0dd4d4;
+        font-size: 20px;
+    }
+    #menuItem a {
+        font-size: 1.2em;
+        color: #000;
+        display: block;
+        line-height: 50px;
+        text-decoration: none;
+    }
+    #menuItem a:hover,
+    #menuItem a:active {
+        text-decoration: none;
+        font-weight:bold;
+    }
+
+    #menuItem a label{
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    text-align: center
+    }
+    #menuItem a label i{
+        font-size: 1em;
+        transform: translate(0%, -25%);
+    }
+    #menuItem a span{
+        margin-left: 15px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .list-group{
+        width: 100%;
+        margin: 0px -15px;
+    }
+    .list-group li{
+        list-style: none;
+        width: 100%;
+        margin: 15px auto;
+        padding: 5px;
+        border-radius:5px; 
+        text-transform: uppercase;
+    }
+    .list-group li a{
+        text-align: left;
+        font-size: 1em;
+        text-decoration: none;
+        color:#fff;
+        display: block;
+        margin-right: -30px;    
+    }
+    .list-group li a i{
+        font-size: 1.6em;
+        margin-right: 10px;
+    }
+  
+    #isCollapsed_menuClient{
+        padding: 0px 0px 5px 25px;
+    }
+    #isCollapsed_menuAdmin a{
+        display: block;
+        width: 100%;
+        font-size: 1.5em;
+        text-align: left;
+        margin-left: 25px;
+        color: black;
+    }
+    #isCollapsed_menuAdmin a i{
+        margin-right: 10px;
+    }
+   
+    .active{
+        font-weight:bold;
+    }
+  
+    hr{
+        border-top: 0px solid !important;
+    }

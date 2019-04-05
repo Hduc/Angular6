@@ -1,0 +1,107 @@
+<ul class="list-group">
+    <li *ngIf="isAdmin">
+        <a type="button" class="btn btn-danger" (click)="isCollapsed_menuClient = !isCollapsed_menuClient"
+            [attr.aria-expanded]="!isCollapsed_intervenant" aria-controls="isCollapsed_menuClient">
+            <i class="fa fa-calendar-check-o"></i>
+            mes evenements en cours
+        </a>
+    </li>
+    <div id="isCollapsed_menuClient" [collapse]="isCollapsed_menuClient" class="card card-block card-header row">
+
+        <div class="event" *ngIf="Page =='admin-account'">
+            <span>
+                <img class="img-responsive" src="{{SiteWebIntermediation}}">
+                <em class="pull-right">{{DateIntermediation |date : 'd MMMM y'}}</em>
+            </span>
+        </div>
+        <br />
+
+        <div id="menuItem" *ngIf="Page!='admin' && Page !='admin-account'">
+            <div class="event">
+                <span (click)="Goback()">
+                    <img class="img-responsive" src="{{SiteWebIntermediation}}">
+                    <em class="pull-right">{{DateIntermediation |date : 'd MMMM y'}}</em>
+                </span>
+            </div>
+            <br />
+
+            <div class="clearfix"></div>
+            <a routerLink="/information/{{idIntermediation}}" title="informations" [routerLinkActive]='["active"]'>
+                <label [ngStyle]="{'background-color':colorIcon}">
+                    <i class="fa fa-info"></i>
+                </label>
+                <span>présentation</span>
+            </a>
+            <a routerLink="/social-media/{{idIntermediation}}" title="social media" [routerLinkActive]='["active"]'>
+                <label [ngStyle]="{'background-color':colorIcon}">
+                    <i class="fa fa-picture-o"></i>
+                </label>
+                <span>social media</span>
+            </a>
+            <a routerLink="/atelier/{{idIntermediation}}" title="atelier" [routerLinkActive]='["active"]'>
+                <label [ngStyle]="{'background-color':colorIcon}">
+                    <i class="fa fa-microphone"></i>
+                </label>
+                <span>atelier</span>
+            </a>
+            <a routerLink="/pub/{{idIntermediation}}" title="Pub" [routerLinkActive]='["active"]'>
+                <label [ngStyle]="{'background-color':colorIcon}">
+                    <i class="fa fa-television"></i>
+                </label>
+                <span>Pub</span>
+            </a>
+            <div routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/participants/{{idIntermediation}}" title="participants">
+                    <label [ngStyle]="{'background-color':colorIcon}">
+                        <i class="fa fa-users"></i>
+                    </label>
+                    <span>participants</span>
+                </a>
+                <a routerLink="/participants-detail/"></a>
+            </div>
+            <div routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/speed-meetings/{{idIntermediation}}" title="speed meetings">
+                    <label [ngStyle]="{'background-color':colorIcon}">
+                        <i class="fa fa-handshake-o"></i>
+                    </label>
+                    <span>speed meetings</span>
+                </a>
+                <a routerLink="/speed-meetings-detail/{{idIntermediation}}"></a>
+            </div>
+           
+            <a routerLink="/practique/{{idIntermediation}}" title="practique" [routerLinkActive]='["active"]'>
+                <label [ngStyle]="{'background-color':colorIcon}">
+                    <i class="fa fa-calendar"></i>
+                </label>
+                <span>practique</span>
+            </a>
+
+        </div>
+    </div>
+    <li *ngIf="isAdmin">
+        <a type="button" class="btn btn-danger" (click)="isCollapsed_menuAdmin = !isCollapsed_menuAdmin"
+            [attr.aria-expanded]="!isCollapsed_presentation" aria-controls="isCollapsed_menuAdmin">
+            <i class="fa fa-home"></i>
+            système administration
+        </a>
+    </li>
+    <div *ngIf="isAdmin" id="isCollapsed_menuAdmin" [collapse]="isCollapsed_menuAdmin" class="card card-block card-header row">
+        <a class="btn" data-toggle="collapse" href="#Courriels" role="button">
+            <i class="fa fa-envelope"></i>
+            <label>Courriels</label>
+            <i class="fa fa-angle-down pull-right"></i>
+        </a>
+        <div class="collapse" id="Courriels">
+            <div class="card card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil
+                anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident.
+            </div>
+        </div>
+        <a routerLink="/parametres/{{idIntermediation}}" title="practique" [routerLinkActive]='["active"]'>
+            <i class="fa fa-cog"></i>
+            <label> Paramètres</label>
+            <i class="fa fa-angle-down pull-right"></i>
+        </a>
+    </div>
+</ul>

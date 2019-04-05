@@ -1,0 +1,133 @@
+<div class="row">
+  <div class="col-xs-12 button">
+    <br />
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#filtre"><i class="fa fa-filter"></i>
+      FILTRE</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exporter"><i class="fa fa-share-square-o"></i>
+     EXPORTATEUR</button>
+    <button type="button" class="btn btn-danger" (click)="delete()"> <i class="fa fa-trash"></i> EFFACER</button>
+    <button type="button" class="btn btn-danger pull-right" routerLink="/speed-meetings/{{idIntermediation}}" style="margin-right: 0px;">
+      <i class="fa fa-long-arrow-left"></i>
+      RETOUR A LA IISTE
+    </button>
+  </div>
+  <div class="col-xs-12">
+    <div class="row text-uppercase" style="color: #337ab7; font-size: 1.2em; margin: 7px;">
+      <div class="col-sm-1 col-xs-2"><i class="fa fa-sort-numeric-asc"></i></div>
+      <div class="col-sm-6 col-xs-5">Société</div>
+      <div class="col-xs-4">Localisation</div>
+      <div class="col-xs-1 hidden-xs"> Fonction </div>
+    </div>
+    <table [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10" id="data" style="width: 100%;">
+        <div cdkDropList class="list" (cdkDropListDropped)="drop($event)" >
+          <div class="row drap" *ngFor="let item of mf.data; let i=index" cdkDrag (click)="clickDiv(item.idEnqueteSociete)" id={{item.idEnqueteSociete}}>
+            <div class="col-sm-1 col-xs-2 handler" cdkDragHandle>
+              <p class="btn btn-default" style="margin-left: -16px;">::: {{i+1}}</p>
+            </div>
+            <div class="col-sm-6 col-xs-5 text-uppercase" style="text-align: left; ">{{item.nomSociete}}
+              {{item.dateCreationSociete |date : 'd/M/yy'}} </div>
+            <div class="col-xs-4" style="text-align: left; ">{{item.region | uppercase}}</div>
+            <div class="col-xs-1">
+              <div class="pull-right" style="font-size: 1.5em;" data-toggle="collapse" attr.href="#collapse{{item.idEnqueteSociete}}">
+                <i class="fa fa-eye" style="color: #337ab7;"></i>
+              </div>
+            </div>
+            <div class="col-xs-12 collapse content" id="collapse{{item.idEnqueteSociete}}">
+              <label>Chiffre d’affaires :</label>
+              <p>{{item.typeCA}}</p>
+              <label>Taille de l'entreprise :</label>
+              <p>{{item.typeEffectif}}</p>
+              <label>Code APE :</label>
+              <p>{{item}}</p>
+              <label>Activite societe :</label>
+              <p>{{item.activiteSociete}}</p>
+              <label>Region :</label>
+              <p>{{item.region}}</p>
+              <label>Fonction(s) représentée(s):</label>
+              <p>{{item.fonctionGenerique}}</p>
+              <label>Fonctions de contact :</label>
+              <p>{{item.fonctionContact}} <br /></p>
+              <label>Nom de contact :</label>
+              <p>{{item.civiliteAbrege}} {{item.nomContact}}</p>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-xs-12" style="margin: 10px -15px;">
+          <div class="col-xs-12">
+            <button type="button" class="btn btn-danger" style="float: left;" (click)="saveChageIndex()">SAUVEGARDER</button>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]" (click)="Count()"></mfBootstrapPaginator>
+        </div>
+      </div>
+    </table>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="filtre" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" style="font: 1.2em ;">&times;</button>
+          <h4 class="modal-title">FILTRAGE DES DONNEES</h4>
+        </div>
+        <div class="container-fluid">
+          <div class="form-group row">
+            <div class="col-xs-12">
+              <input type="text" #monSociete class="form-control" (keyup.enter)="filtreMonSoiciete(monSociete.value)"
+                placeholder="Par de Nom">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="filtreMonSoiciete(monSociete.value)" data-dismiss="modal">FILTER</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">ANNULER</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exporter" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">EXPORTER EN CVS</h4>
+        </div>
+        <div class="container-fluid">
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" #exportName placeholder="Nom de fichier" ngModel #txtExportName="ngModel" />
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="col-sm-12">
+                <label class="col-sm-6 container">
+                  <input type="radio" checked="checked" name="radio">
+                  L’ensemble des sociétés
+                  <span class="checkmark"></span>
+                </label>
+                <label class="col-sm-6 container">
+                  <input type="radio" name="radio">
+                  Votre Selection
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="exportToExcel(txtExportName.value)">EXPORTER</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">ANNULER</button>
+        </div>
+      </div>
+    </div>
+  </div>

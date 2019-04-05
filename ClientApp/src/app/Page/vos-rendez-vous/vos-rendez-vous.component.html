@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-xs-12 button">
+    <br />
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#filtre"><i class="fa fa-filter"></i>
+      FILTRE</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exporter"><i class="fa fa-share-square-o"></i>
+      EXPORTATEUR</button>
+    <button type="button" class="btn btn-danger" (click)="myFunction()"><i class="fa fa-print"></i> IMPRIMER</button>
+    <button type="button" class="btn btn-danger pull-right" routerLink="/speed-meetings-detail/{{idIntermediation}}"
+      style="margin-right: 0px;">
+      <i class="fa fa-list"></i>
+      MA SELECTION
+      <span class="badge">{{count}}</span>
+    </button>
+  </div>
+  <!-- //////////////////////////////// -->
+  <div class="col-xs-12 table-reponsive">
+    <table [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5" id="data">
+      <div class="row item" *ngFor="let items of mf.data; let i=index">
+        <div class="col-xs-12 title">
+          <h3>{{items.nomSociete}}</h3>
+          <button class="btn btn-danger pull-right" name={{items.isCheck}} id={{items.idEnqueteSociete}} (click)='Chosen(items.idEnqueteSociete)' style="padding: 5px 25px; color: #fff;">CHOISIR</button>
+        </div>
+        <div class="col-xs-12 content">
+          <label>Chiffre d’affaires :</label>
+          <p>{{items.typeCA}}</p>
+          <label>Taille de l'entreprise :</label>
+          <p>{{items.typeEffectif}}</p>
+          <label>Code APE :</label>
+          <p>{{items.codeAPE2008}}</p>
+          <label>Activite société :</label>
+          <p>{{items.activiteSociete}}</p>
+          <label>Région :</label>
+          <p>{{items.region}}</p>
+          <label>Fonction(s) représentée(s):</label>
+          <p>{{items.fonctionGenerique}}</p>
+          <label>Fonctions de contact :</label>
+          <p>{{items.fonctionContact}} </p>
+        </div>
+      </div>
+      <div class="row">
+        <mfBootstrapPaginator [rowsOnPageSet]="[2,5,10,25]" (click)="Count()" class="col-xs-12"></mfBootstrapPaginator>
+      </div>
+
+    </table>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="filtre" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" style="font: 1.2em ;">&times;</button>
+        <h4 class="modal-title">FILTRAGE DES DONNEES</h4>
+      </div>
+      <div class="container-fluid">
+        <div class="form-group row">
+          <div class="col-xs-12">
+            <input type="text" #monSociete class="form-control" (keyup.enter)="filtreMonSoiciete(monSociete.value)"
+              placeholder="Par de Nom">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="filtreMonSoiciete(monSociete.value)" data-dismiss="modal">FILTER</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">ANNULER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exporter" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">EXPORTER EN CVS</h4>
+      </div>
+      <div class="container-fluid">
+        <div class="form-group row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <input type="text" class="form-control" #exportName placeholder="Nom de fichier" ngModel #txtExportName="ngModel" />
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="col-sm-12">
+              <label class="col-sm-6 container">
+                <input type="radio" checked="checked" name="radio">
+                L’ensemble des sociétés
+                <span class="checkmark"></span>
+              </label>
+              <label class="col-sm-6 container">
+                <input type="radio" name="radio">
+                Votre Selection
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="exportToExcel(txtExportName.value)">EXPORTER</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">ANNULER</button>
+      </div>
+    </div>
+  </div>
+</div>

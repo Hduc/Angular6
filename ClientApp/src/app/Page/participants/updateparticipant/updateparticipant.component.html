@@ -1,0 +1,142 @@
+<div id="social-detail">
+  <form class="add_participant" (submit)="SaveContact($event)" style=" width:100%;">
+    <div class="row">
+      <h4 class="col-sm-12" style="font-size: 27px;">Editer le contact {{objContact.prenomContact}}
+        <button data-fancybox-close class="btn btn-default pull-right" (click)="Back(0)">
+          <i class="fa fa-arrow-left" aria-hidden="true" style="font-size: 16px;color:#d43f3a"></i>
+        </button>
+      </h4>
+    </div>
+    <div class="row" style="margin-left: 20px;">
+      <!-- <div class="col-sm-3 col-xs-12 avatar">
+        <img [src]="imgSrc" class="img-responsive" alt="" (change)="changeAvatar($event)">
+        <input type="file" (change)="changeAvatar($event.target.files)" />
+      </div> -->
+      <label class="container col-sm-1 cuscheck"> M.
+        <input type="radio" value="1" checked='{{objContact.idcivilite == 1? "checked" : "" }}' name="radio">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container col-sm-1 cuscheck">Mme
+        <input type="radio" value="2" name="radio" checked='{{objContact.idcivilite == 2? "checked" : "" }}'>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container col-sm-1 cuscheck">Mlle
+        <input type="radio" value="3" name="radio" checked='{{objContact.idcivilite == 3 ? "checked" : ""}}'>
+        <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div class="row" style="margin-top: 35px;">
+      <div class="col-sm-6">
+        <label for="prenom">Prénom </label>
+        <div class="input-group">
+          <input type="hidden" id="idContact_up" value='{{idcontact}}'>
+          <input type="text" class="form-control" id="prenom_up" value="{{setPrenom}}" placeholder="Prénom" aria-describedby="prenom">
+          <span class="input-group-addon">
+            <a data-fancybox="" data-src="#up_prenomContact" data-modal="true" id="searchUser" href="javascript:void()" style="color:green; "><i class="fa fa-search"></i></a>
+          </span>
+        </div>
+        <div class="validate_prenom_up" style="margin-top: 5px"></div>
+      </div>
+      <div class="col-sm-6">
+        <label for="Famillefonction">Famille fonction</label>
+        <ng-select name="Effectif" id="ng_Famille_up" #Famillefonction="ngModel" [items]="lst_Famillefonction" bindLabel="typeFonction"
+          bindValue="idTypeFonction" [(ngModel)]="select_Famillefonction" placeholder="Famille fonction" (change)="ChosenFonction(select_Famillefonction)"></ng-select>
+        <div class="validate_ng_Famille_up" style="margin-top: 5px"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="Nom">Nom</label>
+        <input type="text" class="form-control" id="nom" placeholder="Nom" id="nom" value='{{(objContact.nomContact != "" || objContact.nomContact != undefined) ? objContact.nomContact : ""}}'>
+      </div>
+      <div class="col-sm-6">
+        <label for="FonctionGenerique">Fonction générique</label>
+        <ng-select name="FonctionGenerique" id="ng_Generique_up" #FonctionGenerique_up="ngModel" [items]="liste_FonctionGenerique"
+          bindLabel="fonctionGenerique" bindValue="idListeFonction" [(ngModel)]="select_Generique" placeholder="Fonction générique"
+          [disabled]="select_Generique == undefined"></ng-select>
+        <div class="validate_ng_Generique_up" style="margin-top: 5px"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="Telephone">Téléphone</label>
+        <input type="text" class="form-control" id="telephone" placeholder="Téléphone" id="telephone" value='{{(objContact.telephoneContact != "" || objContact.telephoneContact != undefined )? objContact.telephoneContact : ""}}'>
+      </div>
+      <div class="col-sm-6">
+        <label for="Fonctiondetail">Fonction détaillée</label>
+        <input type="text" class="form-control" id="fonctionContact_up" placeholder="Fonction détaillée">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="Portable">Portable</label>
+        <div class="input-group">
+          <span class="input-group-addon" id="Portable1"></span>
+          <input type="text" class="form-control" id="Portable" placeholder="Portable" aria-describedby="Portable1" value='{{(objContact.portableContact!= "" || objContact.portableContact !=  undefined) ? objContact.portableContact : "" }}'>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label for="EmailContact">Email </label>
+        <div class="input-group">
+          <span class="input-group-addon" id="Email1">
+            <i class="fa fa-check-circle" style='color:green' *ngIf="check_Email"></i>
+            <i class="fa fa-minus-circle" style='color:red' *ngIf="!check_Email"></i>
+          </span>
+          <input type="text" class="form-control checkemail" (keyup)="checkEmail(email.value)" #email placeholder="Email" aria-describedby="Email1"
+            id="emailContact" value='{{(objContact.emailContact != "" || objContact.emailContact != undefined )? objContact.emailContact : ""}}'>
+        </div>
+      </div>
+    </div>
+    <!-- loader -->
+    <div class="loader"></div>
+    <div class="row">
+      <div class="pull-right submit">
+        <button type="submit" class="btn btn-danger">SAUVEGARDER</button>
+        <button type="reset" class="btn btn-default" (click)="Back(0)">SUPPRIMER</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- From search user -->
+<form id="up_prenomContact" action="" method="post" style="display: none; width:45%;">
+  <h4>Prénom
+    <i data-fancybox-close class="fa fa-times pull-right"></i>
+  </h4>
+  <div class="row">
+    <div class="col-sm-12">
+      <i class="fa fa-search" (click)="search(searchprem.value)"></i>
+      <input #searchprem type="text" class="form-control" style="width:95%" (keyup.enter)="search(searchprem.value)" placeholder="searching...">
+    </div>
+    <div class="col-sm-12">
+    </div>
+  </div>
+  <div class="row" style="margin: 15px;">
+    <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
+      <thead style="text-align: center;">
+        <tr style="width:20%">
+          <th by="idape2008">Prénom</th>
+          <th by="idape2008">Nom</th>
+        </tr>
+      </thead>
+      <tbody class="scrollbar">
+        <div class="force-overflow"></div>
+        <tr *ngFor="let item of mf.data; let i=index" (click)="ChangePrenom(item.prenomContact)" data-fancybox-close>
+          <td>
+            {{item.prenomContact}}
+          </td>
+          <td>
+            {{item.nomContact}}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</form>

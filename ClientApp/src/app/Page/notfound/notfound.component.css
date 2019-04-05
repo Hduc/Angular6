@@ -1,0 +1,11 @@
+.notfound{
+ text-align: center;
+}
+.notfound label{
+    font-size: 12em;
+    color: red;
+    display: block;
+}
+.notfound p{
+    font-size: 2em;
+}

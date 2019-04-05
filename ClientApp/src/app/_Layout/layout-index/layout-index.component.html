@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <nav class='navbar navbar-light'>
+        <div class='navbar'>
+          <app-logo></app-logo>
+          <div *ngIf="id">
+            <app-info [nomSociete]="banner.nomSociete" [idIntermediation]="0"></app-info>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="col-12 body-content">
+      <app-banner #banner></app-banner>
+      <div class="row" id="content"> 
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

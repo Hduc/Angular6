@@ -1,0 +1,79 @@
+#content {
+    width: 85%;
+    margin: 10px auto;
+    overflow-x: visible;
+}
+@media(max-width:1200px){
+    #content {
+        width: 92%;
+        margin: auto;
+    }
+}
+
+.login{
+    width: 50%;
+    margin: 40px auto ;
+    margin-bottom:0px
+}
+@media(max-width:767px){
+    .login{
+        width: 90%;
+        margin: 40px auto ;
+    }
+    h4.title{
+        font-size: 17px !important;
+    }
+}
+.login i{
+    color: red;
+}
+h4.title{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    color: #525050;
+}
+#logo{
+    margin: 40px 0px 5px 0px;
+}
+.login .form-group{
+    margin-bottom: 25px;
+}
+
+
+
+
+
+
+/* ///////////////////////////modal /////////////// */
+.modal{
+    margin: 5px auto;
+    margin-top: 250px;
+}
+.modal-footer {
+    padding:0px;
+    text-align: center;
+    border-top: 0px solid #e5e5e5;
+}
+
+.modal .modal-dialog .modal-header{
+    text-transform: uppercase;
+}
+.modal .modal-dialog .container-fluid{
+   margin: 10px ;
+}
+div .modal-header {
+    text-transform: uppercase;
+    background-color: #3e64e3 ;
+    color: white ;
+    text-align: center ;
+}
+.modal-dialog{
+    max-width: 450px !important;
+}
+.cusfrom{
+    margin: 15px 15px ;
+}
+.cusfrom label{
+    margin-bottom: 10px;
+}

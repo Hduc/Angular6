@@ -1,0 +1,118 @@
+.breadcrumbs{
+    height: 50px;
+}
+.breadcrumbs a{
+    font-size: 1.3em;
+    text-decoration: none;
+    margin-left:10px;
+}
+.parametres .row {
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+     box-shadow: 0 10px 6px -6px #777;
+     margin: 15px 0px;
+}
+.parametres .row .title{
+    background-color: rgb(189, 188, 188);
+    padding: 10px;
+    font-size: 1.2em;
+}
+/* //////content */
+label.btn span {
+  font-size: 1.2em ;
+  color: #000;
+}
+
+label input[type="radio"] ~ i.fa.fa-circle-o{
+    color: #c8c8c8;    display: inline;
+}
+label input[type="radio"] ~ i.fa.fa-dot-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o{
+    color: #7AA3CC;    display: inline;
+}
+label:hover input[type="radio"] ~ i.fa {
+color: #7AA3CC;
+}
+
+label input[type="checkbox"] ~ i.fa.fa-square-o{
+    color: #c8c8c8;    display: inline;
+}
+label input[type="checkbox"] ~ i.fa.fa-check-square-o{
+    display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-square-o{
+    display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
+    color: #7AA3CC;    display: inline;
+}
+label:hover input[type="checkbox"] ~ i.fa {
+color: #7AA3CC;
+}
+
+div[data-toggle="buttons"] label.active{
+    color: #7AA3CC;
+}
+
+div[data-toggle="buttons"] label {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 2em;
+text-align: left;
+white-space: nowrap;
+vertical-align: top;
+cursor: pointer;
+background-color: none;
+border: 0px solid #c8c8c8;
+border-radius: 3px;
+color: #c8c8c8;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+
+div[data-toggle="buttons"] label:hover {
+color: #7AA3CC;
+}
+
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+/* /////end content */
+.datetime{
+    padding: 15px;
+    margin: 10px 5px;
+}
+.datetime .fa-question-circle{
+    font-size: 1.5em;
+    color: rgb(66, 153, 211);
+}
+/* /////model */
+.modal{
+    margin: 5px auto;
+    margin-top: 250px;
+    
+}
+.modal .modal-dialog .modal-header{
+    text-transform: uppercase;
+    background-color: #d43f3a;
+    color: #fff;
+}
+.modal .modal-dialog .container-fluid{
+   margin: 10px ;
+}
+.mb15{
+    margin-bottom: 15px;
+}

@@ -1,0 +1,66 @@
+<div class="col-xs-12 breadcrumbs">
+</div>
+<div class="event">
+  <!-- <div *ngIf="eventHistory=='true'" class="pull-right block" style="margin-bottom: 15px;">
+        <button type="submit" class="btn btn-primary" (click)="chage()">En Cours</button>
+    </div> -->
+  <h4 class="title">Vous participez aux évènement suivants :</h4>
+
+  <!--<a class="row" *ngFor="let item of data;" (click)="eventClick(item.idintermediation,item.idListeService)" [ngStyle]="{'color' : item.isEventHistory === 1 ? '#bbbaba' : '' }">
+    <div class="col-md-6 col-xs-12" style="margin-bottom: 15px;">
+      <img src="http://ovh-dev-profiler.premiumcontact.fr/imgs/MEP/Picto_service/{{item.idListeService}}.gif"> {{item.dateIntermediation |date : 'y'}} - {{item.intermediation || uppercase}} - {{item.lieu}} - {{item.dateIntermediation
+      |date : 'd/MM/y'}}
+    </div>
+
+    <div class="col-md-3 col-xs-10">
+      <div class="progress">
+        <div class="progress-bar progress-bar-deactivate" [ngStyle]="{'background-color' : item.isEventHistory === 1 ? '#bbbaba' : '' }"
+          style="width: 39%">
+          39%
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-2">
+      <button class="btn btn-danger" [ngStyle]="{'background-color' : item.isEventHistory === 1 ? 'background-color:#bbbaba ;border-color : #bbbaba' : '' }">
+        <i class="fa fa-cloud-upload"></i> Upload File</button>
+    </div>
+  </a>
+  <h3 *ngIf="notdata" class="text-center">
+    Aucun événement sélectionné
+  </h3> -->
+  <table class="table cus" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <tbody>
+      <tr *ngFor="let item of mf.data; " (click)="eventClick(item.idintermediation,item.idListeService)">
+        <td >
+          <div class="col-md-6 col-sm-12" style="margin-bottom: 15px;" [ngStyle]="{'color' : item.isEventHistory === 1 ? '#bbbaba' : '' }">
+            <img src="http://ovh-dev-profiler.premiumcontact.fr/imgs/MEP/Picto_service/{{item.idListeService}}.gif">
+            {{item.dateIntermediation |date : 'y'}} - {{item.intermediation || uppercase}} - {{item.lieu}} -
+            {{item.dateIntermediation |date : 'd/MM/y'}}
+          </div>
+          <div class="col-md-5 col-sm-10 col-xs-8">
+            <div class="progress">
+              <div class="progress-bar progress-bar-deactivate" style="width: 39%" [ngStyle]="{'background-color' : item.isEventHistory === 1 ? '#bbbaba' : '' }">
+                39%
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1 col-sm-2 col-xs-4">
+            <button class="btn btn-danger" *ngIf="item.isEventHistory === 1" style="margin-top: -7px;">
+              <i class="fa fa-cloud-download"></i> Download File
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <h3 *ngIf="notdata" class="text-center">
+    Aucun événement sélectionné
+  </h3>
+</div>

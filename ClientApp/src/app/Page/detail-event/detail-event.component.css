@@ -1,0 +1,115 @@
+.detail-event{
+    margin-top:30px;
+}
+.breadcrumbs{
+    height: 50px;
+}
+.breadcrumbs a{
+    font-size: 1.3em;
+    text-decoration: none;
+    margin-left:10px;
+}
+.event span{
+    float: right;
+    display: block;
+    font-weight: bold;
+    height: 30;
+    overflow: hidden;
+}
+.event em{
+    clear: right;
+}
+.event cusImg{
+    margin-right: 10px;
+    color: #0dd4d4;
+    font-size: 20px;
+}
+.eventItem{
+    margin: 10px auto;
+}
+.info{
+    margin-top: 35px;
+}
+.info.disabled strong, .info.disabled p{
+    color:rgb(155, 150, 150)!important;
+}
+#menuItem {
+    display: block;
+    padding: 5px 10px;
+    margin: 5px auto;
+    margin-top: -60px;
+}
+#menuItem .event {
+    padding: 15px 30px 80px 10px;
+}
+#menuItem .event span{
+    float: right;
+    display: block;
+    font-weight: bold;
+}
+#menuItem .event small{
+    clear: right;
+}
+#menuItem .event cusImg{
+    margin-right: 10px;
+    color: #0dd4d4;
+    font-size: 20px;
+}
+#menuItem a {
+    font-size: 1.2em;
+    color: #000;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+#menuItem a:hover,
+#menuItem a:active {
+    text-decoration: none;
+    font-weight:bold;
+}
+
+#menuItem a label{
+    display: block;
+    margin: 5px auto;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+#menuItem a label i{
+    font-size: 1.4em;
+    margin-top: 8px;
+}
+#menuItem a span{
+    text-transform: uppercase;
+}
+#menuItem div.col-xs-8{
+    margin-top: 15px;
+}
+@media(max-width:767px){
+    .info{
+        margin-top: 15px;
+    }
+    #menuItem {
+        margin-top: 0px;
+    }
+}
+@media(max-width:992px){
+    .info{
+        margin-top: 15px;
+    }
+    #menuItem {
+        margin-top: 0px;
+    }
+
+}
+strong{
+    font-size: 17px;
+}
+.cusImg{
+    width: 80%;
+    float: right;
+}
+hr {
+    border-top: 0px solid !important;
+}

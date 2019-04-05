@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <nav class='navbar navbar-light'>
+        <div class='navbar'>
+          <app-logo></app-logo>
+          <div *ngIf="id">
+            <app-info [nomSociete]="banner.nomSociete" [idIntermediation]="menu.idIntermediation"></app-info>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="col-12 body-content">
+      <app-banner #banner></app-banner>
+      <div class="row" id="content">
+        <div  class="col-12 breadcrumbs">
+          <i class="fa fa-chevron-right"></i>
+          <a (click)="Goback()">Page d’accueil</a>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <app-menu-item #menu></app-menu-item>
+        </div>
+        <div class="col-md-9 col-sm-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

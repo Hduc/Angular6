@@ -1,0 +1,33 @@
+/* search */
+.navbar-nav{/* fix to firefox brower */
+    width: 100%;
+}
+.navbar-nav #search{
+    width: 70%;
+    margin: 5px auto;
+}
+#search form {
+    float: left;
+}
+ #search form input {
+    border: #251453 solid 1px;
+}
+ #search form button {
+    color: #fff;
+    border: #251453 solid 1px;
+    background-color: #251453;
+    border-radius: 0%;
+}
+ #search a{
+    padding-top: 8px;
+    font-size: 1.2em; 
+    color: #000;
+    text-decoration:none;
+    float: left;
+}
+@media(max-width:767px){
+   
+     #search a{
+    color: #000;
+    }
+}
